@@ -12,20 +12,19 @@ li {
 }
 
 ul {
-  overflow: hidden;
-  padding-top: 20px;
+  padding-top: 4.5vh;
   position: relative;
   display: flex;
   justify-content: center;
 }
 
 .node {
-  width: 90px;
-  height: 145px;
+  width: 10vw;
   border: 1px solid #ccc;
   display: inline-block;
   font-size: 16px;
   position: relative;
+  box-shadow: 2px 2px 2px 2px #ddd;
 }
 
 li {
@@ -42,7 +41,7 @@ li {
   left: 50%;
   top: 0;
   width: 0;
-  height: 20px;
+  height: 4.5vh;
   border-left: 1px solid #ccc;
 }
 
@@ -88,6 +87,165 @@ li:first-child::after {
 .tree ul ul:only-child::before {
   border: none;
 }
+
 .treeList ul li:only-child::before {
   border: none;
+}
+
+.mate {
+  margin-left: 0.5vw;
+}
+
+.birthday {
+  position: absolute;
+  top: -25%;
+  left: 35%;
+}
+
+.information {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1vh;
+}
+
+.details {
+  position: absolute;
+  background: #3dcbea;
+  top: 0;
+  left: -135%;
+  height: 100%;
+  justify-content: center;
+  display: none;
+  border-radius: 20px 0 0 20px;
+  flex-direction: column;
+  color: #ffffff;
+  padding: 0 0.5vw;
+}
+
+.defunct {
+  position: relative;
+}
+
+.defunct>div {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.node:hover .details {
+  display: flex;
+  z-index: 2;
+  animation: detailsShow .5s;
+}
+
+.operation {
+  position: absolute;
+  top: -117%;
+  left: 21%;
+  z-index: 3;
+  background: #ffffff;
+  border: 1px solid #1790FF;
+  padding: 1.3vw 1.3vh;
+  border-radius: 20px;
+  height: 17vh;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: all 0.3s;
+  display: none;
+}
+
+
+.operation::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: 15px solid;
+  position: absolute;
+  bottom: -30px;
+  left: 35%;
+  border-color: #1890ff transparent transparent;
+}
+
+.operation button {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0.5vw 1.5vh;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.operation button:hover {
+  border: 1px solid #1890ff;
+  color: #1890ff;
+}
+
+.operationHidden {
+  display: none;
+}
+
+.operationShow {
+  display: flex;
+  animation: operationShow .3s;
+}
+
+@keyframes operationShow {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes detailsShow {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes informationBoxShow {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.inputForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 1vh;
+  border: 2px solid #a5a7a9;
+  border-radius: 20px;
+  animation: informationBoxShow .3s;
+  width: 33vw;
+}
+
+.inputForm input {
+  width: 80%;
 }

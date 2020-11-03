@@ -1,17 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './style/tree.css';
 import Tree from './components/tree'
-import genealogy from '../../mock/mock'
+import mock from '../../mock/mock'
 
 const TreeChart = () => {
+  const genealogy = mock
   return (
     <div className="treeChart">
-    <div class="tree">
-      <ul class="treeList">    
-        <Tree data={genealogy}/>
-      </ul>
+      <Tree data={genealogy}/>
     </div>
-  </div>
   )
 }
 
