@@ -108,7 +108,7 @@ const TreeRoot = ({data,getPermissions}) => {
   }
 
   /**
-   * @description: 
+   * @description: 删除配偶
    * @param {*} tree 当前循环的列表
    * @param {*} deleteMateName 需要删除的配偶姓名
    */

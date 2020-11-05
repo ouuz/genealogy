@@ -57,7 +57,7 @@ function dateFormat(format, date) {
   for (let k in option) {
     retested = new RegExp("(" + k + ")").exec(format);
     if (retested) {
-      format = format.replace(retested[1], (retested[1].length == 1) ? (option[k]) : (option[k].padStart(retested[1].length, "0")))
+      format = format.replace(retested[1], (retested[1].length === 1) ? (option[k]) : (option[k].padStart(retested[1].length, "0")))
     };
   };
   return format;

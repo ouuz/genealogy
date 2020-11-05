@@ -40,7 +40,6 @@ const Login = ({getPermissions}) => {
 
   /**
    * @description: 登录：进行用户权限和管理员权限的区分
-   * @param {*}
    */
   const login = () => {
     if(state.account === "root"){

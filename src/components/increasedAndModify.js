@@ -19,7 +19,6 @@ const initIncreaseMateState = {
 const initIncreaseSelfState = {
   ...initIncreaseMateState,
   maritalStatus: false,
-  portraitUrl:"/assets/爷爷.png",
   children: [],
   mate:initIncreaseMateState
 }
@@ -155,22 +154,36 @@ const IncreasedAndModify = ({setShowForm,parent,currentInformation,status,geneal
     information.children = []
     if(!state.maritalStatus)
       delete information.mate
-    addPerson(genealogy,current,information)
-    setShowForm(false)
+    if(state.name === "" || state.birthday === "" || state.address === ""){
+      alert("你的信息还没有填写清楚噢~")
+    }else{
+      addPerson(genealogy,current,information)
+      setShowForm(false)
+    }
   }
   
   /**
    * @description: 更新个人信息（包括配偶信息）
    */
   const update = () => {
-    if(state.maritalStatus)
-      updatePerson(genealogy,parent,current,state)
-    else{ 
-      let information = state
-      delete information.mate
-      updatePerson(genealogy,parent,current,information)
+    if(state.name === "" || state.birthday === "" || state.address === ""){
+      alert("你的信息还没有填写清楚噢~")
+    }else{
+      if(state.maritalStatus){
+        if(state.mate.name === "" || state.mate.birthday === "" || state.mate.address === ""){
+          alert("你配偶的信息还没有填写清楚噢~")
+        }else{
+          updatePerson(genealogy,parent,current,state)
+          setShowForm(false)
+        }
+      }
+      else{ 
+        let information = state
+        delete information.mate
+        updatePerson(genealogy,parent,current,information)
+        setShowForm(false)
+      }
     }
-    setShowForm(false)
   }
 
   return (
