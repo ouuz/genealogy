@@ -1,0 +1,54 @@
+.login {
+  background: #ffffff;
+  width: 20vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 2px 2px 2px 2px #ddd;
+  animation: loginBox .5s;
+}
+
+.login button {
+  padding: 1vh 2vw;
+  outline: none;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: #1890ff;
+  color: #ffffff;
+  cursor: pointer
+}
+
+.login input {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  padding: .5vh .5vw;
+  width: 80%;
+  line-height: 3vh;
+}
+
+.login p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+@keyframes loginBox {
+  from {
+    transform: translateY(-100vh);
+  }
+}
+
+.exit {
+  position: absolute;
+  right: 2vw;
+  top: 4vh;
+  padding: 1vh 1.5vw;
+  background: #8c8787b3;
+  border: 1px solid #ddd;
+  color: #ffff;
+  cursor: pointer;
+  border-radius: 12px;
+}

@@ -1,0 +1,437 @@
+.treeChart {
+  background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.50) 47%, rgba(0, 0, 0, 0.50) 100%);
+  background-blend-mode: screen;
+  min-height: 99vh;
+  min-width: 98vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul,
+li,
+body,
+button {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  outline:none;
+}
+
+ul {
+  padding-top: 4.5vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.node {
+  width: 10vw;
+  border: 1px solid #ccc;
+  display: inline-block;
+  font-size: 16px;
+  position: relative;
+  box-shadow: 2px 2px 2px 2px #ddd;
+  background: #ffffff
+}
+
+li {
+  float: left;
+  text-align: center;
+  position: relative;
+  padding: 20px 5px 0 5px;
+  font-size: 0;
+}
+
+.tree ul ul::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 4.5vh;
+  border-left: 1px solid #ccc;
+}
+
+li::before {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 0;
+  width: 50%;
+  height: 20px;
+  border-top: 1px solid #ccc;
+}
+
+li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 50%;
+  height: 20px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+li:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+
+.treeList li:first-child::before,
+.treeList li:last-child::after {
+  border: none
+}
+
+.treeList li:last-child::before {
+  border-right: 1px solid #ccc;
+  border-radius: 0px 5px 0 0;
+}
+
+.tree li:only-child {
+  padding: 0;
+}
+
+.tree ul ul:only-child::before {
+  border: none;
+}
+
+.treeList {
+  padding-top: 4.5vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.treeList ul li:only-child::before {
+  border: none;
+}
+
+.mate {
+  margin-left: 0.5vw;
+}
+
+.birthday {
+  position: absolute;
+  top: -25%;
+  left: 35%;
+}
+
+.information {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1vh;
+}
+
+.details {
+  position: absolute;
+  background: #3dcbea;
+  top: 0;
+  left: -168%;
+  height: 100%;
+  justify-content: center;
+  display: none;
+  border-radius: 20px 0 0 20px;
+  flex-direction: column;
+  color: #ffffff;
+  padding: 0 0.5vw;
+}
+
+.defunct {
+  position: relative;
+  width: 5vw;
+}
+
+.defunct>div {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.node:hover .details {
+  display: flex;
+  z-index: 2;
+  animation: detailsShow .8s;
+}
+
+.operation {
+  position: absolute;
+  top: -80%;
+  left: 3%;
+  z-index: 3;
+  background: #ffffff;
+  border: 1px solid #1790FF;
+  padding: 1.3vw 1.3vh;
+  border-radius: 20px;
+  height: 14vh;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: all 0.3s;
+  min-width: 80%;
+  display: none;
+}
+
+
+.operation::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: 15px solid;
+  position: absolute;
+  bottom: -30px;
+  left: 35%;
+  border-color: #1890ff transparent transparent;
+}
+
+.operation button {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0.5vw 1.5vh;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.operation button:hover,
+.search button:hover {
+  border: 1px solid #1890ff;
+  color: #1890ff;
+}
+
+.operationHidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block
+}
+
+.operationShow {
+  display: flex;
+  animation: operationShow .5s;
+}
+
+.portraitImgShow {
+  width: 5vw;
+}
+
+.defunct img,
+.portraitImgShow img {
+  width: 100%;
+}
+
+@keyframes operationShow {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes detailsShow {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes informationBoxShow {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -10%);
+    opacity: 1;
+  }
+}
+
+.inputForm {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  background: #ffffff;
+  padding: 1vh;
+  border: 2px solid #a5a7a9;
+  border-radius: 20px;
+  animation: informationBoxShow 1s;
+  width: 33vw;
+  z-index: 3;
+}
+
+.inputForm .selfInformation input,
+.inputForm .mateInformation input {
+  width: 60%;
+  margin: 2px 0;
+}
+
+.inputForm .selfInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inputForm .selfInformation>img {
+  width: 50%;
+}
+
+label {
+  display: inline-block;
+  padding: 3px 6px;
+  text-align: right;
+  width: 150px;
+  vertical-align: top;
+}
+
+.portrait {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.portrait img {
+  width: 18%;
+  margin-bottom: 1vh;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.portrait img:hover {
+  transform: scale(1.1);
+}
+
+.selfPortrait {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1vh;
+}
+
+.searchNode {
+  animation: searchNode infinite 1s;
+}
+
+@keyframes searchNode {
+  from {
+    transform: translateX(-1vw);
+  }
+
+  to {
+    transform: translate(0%);
+  }
+}
+
+.search {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  height: 33vh;
+  justify-content: space-around;
+  padding: 0 1vw;
+  transform: translateY(-50%);
+  box-shadow: 2px 2px 2px 2px #ddd;
+}
+
+.search button {
+  padding: 0.5vw;
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  outline: none;
+}
+
+@keyframes searchBox {
+  from {
+    transform: translate(-50%, -100vh);
+  }
+}
+
+.searchBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-shadow: 2px 2px 2px 2px #c0bfbf;
+  animation: searchBox .5s;
+  z-index: 3
+}
+
+.searchBox>div div {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.searchBox>div div p {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBox>div>p {
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  padding: 2vh 1vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchBox input {
+  width: 60%;
+}
+
+.searchBox>div div button {
+  background: #1890ff;
+  outline: none;
+  padding: 1vh 3vw;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.selfInformation button {
+  background: #1890ff;
+    color: #ffffff;
+    border: 1px solid #ddd;
+    margin: .5vw;
+    padding: 1vh;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.close{
+  float: right;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
